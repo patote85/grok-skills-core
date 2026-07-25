@@ -1,40 +1,40 @@
 # grok-skills-core
 
-Versioned collection of **Grok skills** designed for building and operating AI agents that produce real production code for high-stakes financial Core systems (zero-downtime tolerance).
+Coleção versionada de **skills do Grok** projetadas para construir e operar agentes de IA que produzem código real de produção para sistemas Core financeiros de alta criticidade (tolerância zero a downtime).
 
-These skills follow a **Progressive Disclosure** architecture inspired by Anthropic’s latest context engineering guidance for Claude 5-generation models: keep the entry point lightweight, load detailed guidance only when needed, and never over-constrain the model with rules that newer models can already handle through judgment.
+Essas skills seguem uma arquitetura de **Progressive Disclosure** inspirada nas orientações mais recentes de context engineering da Anthropic para os modelos Claude 5: manter o ponto de entrada leve, carregar orientações detalhadas apenas quando necessário e nunca over-constrain o modelo com regras que os modelos mais novos já conseguem lidar com julgamento.
 
-## Design Principles
+## Princípios de Design
 
-- **Hard constraints for Core remain non-negotiable** (idempotency, circuit breakers, audit trails, least privilege, human-in-the-loop for high-risk actions).
-- Everything else uses progressive disclosure to avoid context bloat and conflicting instructions.
-- Skills are complementary and intentionally separated:
-  - One decides **architecture and production readiness**.
-  - The other disciplines **code implementation quality**.
+- **Restrições hard de Core permanecem não-negociáveis** (idempotência, circuit breakers, trilhas de auditoria, least privilege, human-in-the-loop para ações de alto risco).
+- Todo o resto usa progressive disclosure para evitar inchaço de contexto e instruções conflitantes.
+- As skills são complementares e intencionalmente separadas:
+  - Uma decide **arquitetura e prontidão de produção**.
+  - A outra disciplina a **qualidade de implementação de código**.
 
 ## Skills
 
 ### 1. `ai-agents-architecture`
 
-**Purpose**  
-Architectural decision-making and production requirements for AI agents and multi-agent systems in high-stakes environments.
+**Propósito**  
+Tomada de decisão arquitetural e requisitos de produção para agentes de IA e sistemas multi-agente em ambientes de alta criticidade.
 
-**When to use**  
-- Designing or reviewing agentic workflows  
-- Deciding whether an agent is needed vs a deterministic workflow  
-- Multi-agent orchestration  
-- Tool design for agents  
-- Any system with side effects in financial Core
+**Quando usar**  
+- Projetar ou revisar workflows agenticos  
+- Decidir se um agente é necessário vs um workflow determinístico  
+- Orquestração multi-agente  
+- Design de tools para agentes  
+- Qualquer sistema com side effects em Core financeiro
 
-**Structure (Progressive Disclosure)**
+**Estrutura (Progressive Disclosure)**
 
 ```
 ai-agents-architecture/
-├── SKILL.md                    # Lightweight entry point
-├── core-constraints.md         # Non-negotiable production rules
+├── SKILL.md                    # Ponto de entrada leve
+├── core-constraints.md         # Regras de produção não-negociáveis
 ├── patterns/
 │   ├── when-to-use-agent.md
-│   └── shared-memory-kg.md     # Knowledge Graph as persistent shared memory
+│   └── shared-memory-kg.md     # Knowledge Graph como memória compartilhada persistente
 ├── production/
 │   ├── resilience.md
 │   ├── observability-audit.md
@@ -46,63 +46,108 @@ ai-agents-architecture/
     └── code-examples.md
 ```
 
-**Key concepts**
-- Prefer the simplest pattern that meets measured success criteria.
-- Knowledge Graph as shared, persistent, provenance-carrying memory (Orchestrator-Workers + Evaluator-Optimizer).
-- Explicit storage guidance for AWS (DynamoDB preferred, Aurora PostgreSQL, Neptune only when justified).
-- Full production checklist for zero-downtime systems.
+**Conceitos-chave**
+- Preferir o padrão mais simples que atenda aos critérios de sucesso medidos.
+- Knowledge Graph como memória compartilhada, persistente e com proveniência (Orchestrator-Workers + Evaluator-Optimizer).
+- Orientação explícita de armazenamento na AWS (DynamoDB preferencial, Aurora PostgreSQL, Neptune apenas quando justificado).
+- Checklist completo de produção para sistemas zero-downtime.
 
 ### 2. `karpathy-code-implementation`
 
-**Purpose**  
-Karpathy-derived discipline for writing and editing code that a senior engineer would respect without rewriting.
+**Propósito**  
+Disciplina derivada de Karpathy para escrever e editar código que um engenheiro sênior respeitaria sem reescrever.
 
-**When to use**  
-- Producing, reviewing, refactoring or debugging actual source code  
+**Quando usar**  
+- Produzir, revisar, refatorar ou debugar código-fonte real  
 - Feature branches, pull requests, merges  
-- Implementation details
+- Detalhes de implementação
 
-**Structure (Progressive Disclosure)**
+**Estrutura (Progressive Disclosure)**
 
 ```
 karpathy-code-implementation/
-├── SKILL.md                    # Lightweight entry point
-├── principles.md               # Detailed principles + self-critique
+├── SKILL.md                    # Ponto de entrada leve
+├── principles.md               # Princípios detalhados + self-critique
 ├── failure-modes.md            # Kitchen Sink, Optimistic Path, etc.
 └── examples/
-    └── code-examples.md        # Python, Java, Go examples
+    └── code-examples.md        # Exemplos em Python, Java, Go
 ```
 
-**Core principles (condensed)**
+**Princípios centrais (condensados)**
 - Read Before You Write
 - Think Before You Code
 - Simplicity First
 - Surgical Changes
 - Goal-Driven Execution + Empirical Verification
 
-## How these skills work together
+## Como essas skills trabalham juntas
 
-| Concern                        | Skill                          |
-|--------------------------------|--------------------------------|
-| Should I even use an agent?    | `ai-agents-architecture`       |
-| Production constraints (Core)  | `ai-agents-architecture`       |
-| Shared memory / Knowledge Graph| `ai-agents-architecture`       |
-| Code quality & diffs           | `karpathy-code-implementation` |
-| Self-critique before shipping  | `karpathy-code-implementation` |
+| Preocupação                         | Skill                          |
+|-------------------------------------|--------------------------------|
+| Devo usar um agente?                | `ai-agents-architecture`       |
+| Restrições de produção (Core)       | `ai-agents-architecture`       |
+| Memória compartilhada / Knowledge Graph | `ai-agents-architecture`   |
+| Qualidade de código e diffs         | `karpathy-code-implementation` |
+| Self-critique antes de entregar     | `karpathy-code-implementation` |
 
-When generating code for Core systems, **both skills should be active**.
+Ao gerar código para sistemas Core, **ambas as skills devem estar ativas**.
 
-## Origin & Evolution
+---
 
-These skills were developed iteratively with the following primary influences:
+## Exemplos de Uso
 
-- Anthropic – Building Effective Agents + latest context engineering guidance (Claude 5)
-- Andrew Ng – Agentic AI patterns + evaluation discipline
-- Andrej Karpathy – observations on LLM coding failure modes
-- Production requirements for financial Core systems (idempotency, circuit breakers, auditability, least privilege)
+### Exemplo 1 — Decisão arquitetural (usar ou não agente)
 
-The architecture was deliberately moved from monolithic rule sets to progressive disclosure after Anthropic’s public guidance on reducing over-constraint in newer models.
+**Prompt do usuário:**
+> Preciso processar conciliações PIX que chegam de múltiplas fontes e podem ter inconsistências. Devo criar um multi-agente?
 
-## License
+**Comportamento esperado com `ai-agents-architecture`:**
+1. A skill força a pergunta: “O fluxo é determinístico o suficiente para um workflow simples?”
+2. Carrega `patterns/when-to-use-agent.md`.
+3. Se a resposta for “não”, rejeita multi-agente e sugere um workflow com circuit breaker + idempotência.
+4. Se a resposta for “sim”, exige que `core-constraints.md` seja aplicado (idempotency keys, audit trail, human-in-the-loop em ações de alto risco).
 
-Private repository. For internal use and controlled sharing only.
+### Exemplo 2 — Implementação de código com side-effect
+
+**Prompt do usuário:**
+> Implemente a função que debita a conta e registra a liquidação.
+
+**Comportamento esperado com ambas as skills ativas:**
+- `ai-agents-architecture` exige: idempotency key, circuit breaker, timeout, audit log e least privilege.
+- `karpathy-code-implementation` exige: leitura do código existente, diff mínimo (surgical), sem abstração prematura, self-critique antes de apresentar.
+- O resultado final deve passar no checklist de `core-constraints.md` + princípios de simplicidade e verificação empírica.
+
+### Exemplo 3 — Revisão de Pull Request
+
+**Prompt do usuário:**
+> Revise este PR que adiciona um novo agente de conciliação.
+
+**Fluxo esperado:**
+1. `ai-agents-architecture` verifica se o agente era realmente necessário e se as restrições de Core foram respeitadas.
+2. `karpathy-code-implementation` analisa o diff: tamanho, estilo, failure modes (Kitchen Sink, Optimistic Path, etc.).
+3. A resposta combina feedback arquitetural + feedback de implementação, com prioridade clara para as restrições não-negociáveis.
+
+### Exemplo 4 — Progressive Disclosure em ação
+
+Quando a tarefa é apenas “escrever um validador simples”, o modelo carrega **apenas**:
+- `karpathy-code-implementation/SKILL.md`
+- (opcionalmente) `principles.md` e `examples/code-examples.md`
+
+Ele **não** carrega `shared-memory-kg.md` nem `production/resilience.md`, mantendo o contexto limpo.
+
+---
+
+## Origem e Evolução
+
+Essas skills foram desenvolvidas de forma iterativa com as seguintes influências principais:
+
+- Anthropic – Building Effective Agents + orientações mais recentes de context engineering (Claude 5)
+- Andrew Ng – Padrões de Agentic AI + disciplina de avaliação
+- Andrej Karpathy – Observações sobre modos de falha de LLMs ao escrever código
+- Requisitos de produção para sistemas Core financeiros (idempotência, circuit breakers, auditabilidade, least privilege)
+
+A arquitetura foi deliberadamente migrada de conjuntos de regras monolíticos para progressive disclosure após as orientações públicas da Anthropic sobre redução de over-constraint em modelos mais novos.
+
+## Licença
+
+Repositório privado. Apenas para uso interno e compartilhamento controlado.
