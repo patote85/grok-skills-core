@@ -1,51 +1,51 @@
-# Contribuindo para o grok-skills-core
+# Contributing to grok-skills-core
 
-Obrigado por considerar contribuir com este repositório!
+Thank you for considering contributing to this repository!
 
-Este projeto contém skills do Grok focadas em agentes de IA de alta criticidade (sistemas Core financeiros). As contribuições são bem-vindas, mas precisam seguir um processo controlado para manter a qualidade e o rigor das skills.
+This project contains Grok skills focused on high-stakes AI agents (financial Core systems). Contributions are welcome, but they must follow a controlled process to maintain the quality and rigor of the skills.
 
-## Como contribuir
+## How to contribute
 
-### 1. Abra uma Issue primeiro
-Antes de começar a trabalhar, abra uma **Issue** descrevendo:
-- O que você quer adicionar ou melhorar
-- Por que isso é útil
-- Qual skill (ou ambas) será impactada
+### 1. Open an Issue first
+Before starting any work, open an **Issue** describing:
+- What you want to add or improve
+- Why it is useful
+- Which skill (or both) will be impacted
 
-Isso evita trabalho duplicado e permite alinhamento prévio.
+This avoids duplicated work and allows prior alignment.
 
-### 2. Faça um Fork do repositório
-Clique em **Fork** no canto superior direito da página do repositório.
+### 2. Fork the repository
+Click **Fork** in the top-right corner of the repository page.
 
-### 3. Crie uma branch a partir da `main`
+### 3. Create a branch from `main`
 ```bash
-git clone https://github.com/SEU-USUARIO/grok-skills-core.git
+git clone https://github.com/YOUR-USERNAME/grok-skills-core.git
 cd grok-skills-core
-git checkout -b feature/nome-da-sua-contribuicao
+git checkout -b feature/your-contribution-name
 ```
 
-### 4. Faça suas alterações
-- Respeite a arquitetura de **Progressive Disclosure** (mantenha os `SKILL.md` leves).
-- Qualquer alteração em restrições de Core (`core-constraints.md`) deve ser extremamente bem justificada.
-- Siga o estilo de escrita já existente (direto, técnico e sem fluff).
-- Se adicionar exemplos de código, mantenha o padrão: código em en-US + comentários em pt-BR.
+### 4. Make your changes
+- Respect the **Progressive Disclosure** architecture (keep `SKILL.md` files lightweight).
+- Any change to Core constraints (`core-constraints.md`) must be extremely well justified.
+- Follow the existing writing style (direct, technical, and without fluff).
+- If adding code examples, keep the pattern: code in en-US + comments in pt-BR.
 
-### 5. Abra um Pull Request
-- Envie o PR para a branch `main` do repositório original.
-- Preencha o template de PR (se houver) ou descreva claramente o que foi alterado e por quê.
-- Referencie a Issue correspondente (ex: `Closes #12`).
+### 5. Open a Pull Request
+- Submit the PR to the `main` branch of the original repository.
+- Fill in the PR template (if any) or clearly describe what was changed and why.
+- Reference the corresponding Issue (e.g., `Closes #12`).
 
-### 6. Code Review obrigatório
-- **Nenhum merge na `main` ocorre sem code review do mantenedor** (`@patote85`).
-- Responda aos comentários do review e faça os ajustes necessários.
-- Após aprovação, o mantenedor fará o merge.
+### 6. Mandatory Code Review
+- **No merge into `main` happens without a code review from the maintainer** (`@patote85`).
+- Respond to review comments and make the necessary adjustments.
+- After approval, the maintainer will perform the merge.
 
-## O que NÃO é bem-vindo
-- Alterações que enfraquecem as restrições de produção (idempotência, circuit breakers, audit trail, least privilege etc.).
-- Adicionar complexidade desnecessária ou abstrações especulativas.
-- PRs grandes demais sem discussão prévia na Issue.
+## What is NOT welcome
+- Changes that weaken production constraints (idempotency, circuit breakers, audit trail, least privilege, etc.).
+- Adding unnecessary complexity or speculative abstractions.
+- Oversized PRs without prior discussion in an Issue.
 
-## Dúvidas?
-Abra uma Issue com a tag `question` ou mencione `@patote85`.
+## Questions?
+Open an Issue with the `question` tag or mention `@patote85`.
 
-Obrigado por ajudar a manter este repositório rigoroso e útil!
+Thank you for helping keep this repository rigorous and useful!
