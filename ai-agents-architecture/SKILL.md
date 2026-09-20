@@ -36,6 +36,7 @@ Load only what the current task requires:
 - **Grok Bot runtime (teammate, computer, skills, routines)** → `patterns/grok-bot.md`
 - **Security audit routing (Cloudflare skill, do not fork)** → `patterns/security-audit.md`
 - **Bend laws gate (not a default runtime)** → `patterns/bend-laws.md`
+- **TypeSafe typed judgments (Jev / System One)** → `patterns/typesafe.md` + skill `typesafe-ai`
 - **Shared persistent memory (Knowledge Graph base)** → `patterns/shared-memory-kg.md`
 - **Resilience, observability, evaluation** → `production/`
 - **Code examples** → `references/code-examples.md`
