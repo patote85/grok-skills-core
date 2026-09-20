@@ -14,4 +14,16 @@ Prefer the simplest pattern that meets measured success criteria.
 
 **Reject multi-agent** when a single well-prompted LLM call + tools solves the problem.
 
-Always measure: if the agent increases latency, cost or failure surface without clear accuracy/reliability gain, discard it.
+**Escalate to a Grok Bot** only as a third step, after a fixed workflow and a single dynamic agent in Grok chat are insufficient:
+
+- The job needs a durable named owner, memory, and a cloud computer inside real apps.
+- Connectors and session state cannot live in one Grok-chat turn.
+- A routine is justified only after a reviewed product skill exists.
+
+**Reject large Grok Bot rosters** (studio / department templates with many specialists) unless quota, approval boundaries, and a measured win from one Bot are already explicit. Official SpaceXAI guides are examples, not the default topology. Details → `grok-bot.md`.
+
+**Bend / leis executáveis** — not a default runtime. Load `patterns/bend-laws.md` only for a concrete pure-core invariant job. Evidence from `crud-api-bend`: contract parity yes, production TPS no. Do not generate the hot path of a financial service in Bend because an agent can emit it.
+
+**Security review** — do not invent a local audit methodology. Guidance by default. Load `cloudflare/security-audit-skill` for attack classes and the six-phase workflow. Full audit only on an explicit audit/pen-test/report request plus a named target. Missing OS sandbox → `needs_validation`, do not run target code. Routing → `security-audit.md`.
+
+Always measure: if the agent increases latency, cost, quota or failure surface without clear accuracy/reliability gain, discard it.
