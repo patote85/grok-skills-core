@@ -34,6 +34,9 @@ ai-agents-architecture/
 ├── core-constraints.md         # Regras de produção não-negociáveis
 ├── patterns/
 │   ├── when-to-use-agent.md
+│   ├── grok-bot.md              # Grok chat ≠ Grok Bot; roster mínimo
+│   ├── security-audit.md       # Rota Cloudflare; não fork
+│   ├── bend-laws.md            # Gate de leis; não runtime default
 │   └── shared-memory-kg.md     # Knowledge Graph como memória compartilhada persistente
 ├── production/
 │   ├── resilience.md
@@ -92,6 +95,18 @@ karpathy-code-implementation/
 
 Ao gerar código para sistemas Core, **ambas as skills devem estar ativas**.
 
+## Radar (não vendorado)
+
+Ponteiros finos em `patterns/`. Metodologia e validadores ficam upstream.
+
+| Tema | Ficheiro | Regra |
+|---|---|---|
+| Grok Bot | `patterns/grok-bot.md` | Chat ≠ Bot. Um Bot com ganho medido antes de roster. |
+| Auditoria | `patterns/security-audit.md` | Guidance default. Full audit só com pedido + repo. Não fork Cloudflare. |
+| Bend | `patterns/bend-laws.md` | Gate `LAWS`/`PROOF`, não runtime de produção. |
+
+Maps / AWS Agent Toolkit: no radar do projecto, sem ficheiro extra até haver job concreto.
+
 ---
 
 ## Exemplos de Uso
@@ -114,7 +129,7 @@ Ao gerar código para sistemas Core, **ambas as skills devem estar ativas**.
 
 **Comportamento esperado com ambas as skills ativas:**
 - `ai-agents-architecture` exige: idempotency key, circuit breaker, timeout, audit log e least privilege.
-- `karpathy-code-implementation` exige: leitura do código existente, diff mínimo (surgical), sem abstração prematura, self-critique antes de apresentar.
+- `karpathy-code-implementation` exige: leitura do código existente, diff mínimo (surgical), sem abstracção prematura, self-critique antes de apresentar.
 - O resultado final deve passar no checklist de `core-constraints.md` + princípios de simplicidade e verificação empírica.
 
 ### Exemplo 3 — Revisão de Pull Request
