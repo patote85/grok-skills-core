@@ -37,6 +37,7 @@ ai-agents-architecture/
 │   ├── grok-bot.md              # Grok chat ≠ Grok Bot; roster mínimo
 │   ├── security-audit.md       # Rota Cloudflare; não fork
 │   ├── bend-laws.md            # Gate de leis; não runtime default
+│   ├── typesafe.md             # Juízos tipados Jev; sem credenciais no git
 │   └── shared-memory-kg.md     # Knowledge Graph como memória compartilhada persistente
 ├── production/
 │   ├── resilience.md
@@ -104,8 +105,11 @@ Ponteiros finos em `patterns/`. Metodologia e validadores ficam upstream.
 | Grok Bot | `patterns/grok-bot.md` | Chat ≠ Bot. Um Bot com ganho medido antes de roster. |
 | Auditoria | `patterns/security-audit.md` | Guidance default. Full audit só com pedido + repo. Não fork Cloudflare. |
 | Bend | `patterns/bend-laws.md` | Gate `LAWS`/`PROOF`, não runtime de produção. |
+| TypeSafe | `patterns/typesafe.md` | Choice/Noul/Score. Código manda. Sem API key no git. |
 
 Maps / AWS Agent Toolkit: no radar do projecto, sem ficheiro extra até haver job concreto.
+
+Instalar a skill upstream (sem credencial): `npx skills add typesafe-ai/skills --skill typesafe-ai`.
 
 ---
 
