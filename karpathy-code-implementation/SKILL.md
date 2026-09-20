@@ -1,6 +1,6 @@
 ---
 name: karpathy-code-implementation
-description: Enforce Karpathy-derived discipline for writing and editing code. Prioritize minimal diffs, simplicity, surgical changes, read-before-write, goal-driven verification and empirical checks. Use progressive disclosure for detailed principles, failure modes and language-specific examples. Use whenever producing, reviewing, refactoring or debugging actual source code. Do not use for high-level agent architecture decisions.
+description: Enforce Karpathy-derived discipline for writing and editing code. Prioritize minimal diffs, simplicity, surgical changes, read-before-write, goal-driven verification and empirical checks. Use whenever producing, reviewing, refactoring or debugging actual source code, including code drafted by Grok Bot on its cloud computer. Use progressive disclosure for detailed principles, failure modes and language-specific examples. Do not use for high-level agent architecture decisions.
 ---
 
 # Karpathy Code Implementation
@@ -13,11 +13,11 @@ Produce code that a senior engineer would respect without rewriting.
 
 ## Core Principles (condensed)
 
-- **Read Before You Write** — Read the real files, patterns, imports and tests before changing anything.
+- **Read Before You Write** — Read the real files, patterns, imports and tests before changing anything. Code written on a Grok Bot cloud computer is a draft until it is read in the real repo.
 - **Think Before You Code** — State assumptions and tradeoffs. Ask when unclear. Do not fill gaps with plausible code.
 - **Simplicity First** — Minimum code that solves the stated problem. No speculative abstraction or future-proofing.
 - **Surgical Changes** — Smallest possible diff. Touch only what the request requires. Match existing style.
-- **Goal-Driven + Verify** — Define success criteria first. Prefer empirical verification (tests, diffs, types) over model opinion. Self-critique before presenting.
+- **Goal-Driven + Verify** — Define success criteria first. Prefer empirical verification (tests, diffs, types) over model opinion. Self-critique before presenting. If the job is a Bend *laws* spike (`LAWS.bend` / `PROOF.bend`), the gate is `bend PROOF.bend` — do not delete a law to go green. That path is not the default for product code; routing → `ai-agents-architecture/patterns/bend-laws.md`.
 
 ## Progressive Disclosure
 
