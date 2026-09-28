@@ -2,7 +2,7 @@
 
 Coleção versionada de **skills do Grok** projetadas para construir e operar agentes de IA que produzem código real de produção para sistemas Core financeiros de alta criticidade (tolerância zero a downtime).
 
-Essas skills seguem uma arquitetura de **Progressive Disclosure** inspirada nas orientações mais recentes de context engineering da Anthropic para os modelos Claude 5: manter o ponto de entrada leve, carregar orientações detalhadas apenas quando necessário e nunca over-constrain o modelo com regras que os modelos mais novos já conseguem lidar com julgamento.
+Essas skills seguem uma arquitetura de **Progressive Disclosure** inspirada nas orientações mais recentes de context engineering: manter o ponto de entrada leve, carregar orientações detalhadas apenas quando necessário e nunca over-constrain o modelo com regras que os modelos mais novos já conseguem lidar com julgamento.
 
 ## Princípios de Design
 
