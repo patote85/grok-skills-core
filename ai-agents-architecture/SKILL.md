@@ -7,6 +7,13 @@ description: Enforce architectural and production best practices for AI agents a
 
 Apply these principles when designing, reviewing or operating agentic systems. Prefer measured simplicity. Complexity is the enemy of reliability.
 
+## Standing rules (toda decisão)
+
+Valem para architecture, Karpathy, brainstorm, grill, radar de vendor e qualquer cutover neste projecto.
+
+1. **Custo responsável** — tokens da sessão *e* custo de criar/sustentar a infra da solução. Toaster: o modelo/padrão mais barato que cumpre o critério medido. Recusar agente, Bot, runtime ou skill vendorada se o ganho não pagar quota + operação.
+2. **Agent-friendly é vivo** — SoT fora do chat, prova no artefacto, constraint no CI, mapa que um modelo *deste ano* consegue seguir. Quando o modelo evolui, actualizar o mapa/CI/skills; não congelar um checklist de 2025 nem inflacionar markdown para parecer rigoroso.
+
 ## Core Decision Framework
 
 1. **Is an agent actually required?**
@@ -38,6 +45,8 @@ Load only what the current task requires:
 - **Bend laws gate (not a default runtime)** → `patterns/bend-laws.md`
 - **TypeSafe typed judgments (Jev / System One)** → `patterns/typesafe.md` + skill `typesafe-ai`
 - **Shared persistent memory (Knowledge Graph base)** → `patterns/shared-memory-kg.md`
+- **Grandes decisões — brainstorm** → `patterns/brainstorm.md` + skill `decision-brainstorm` (não em ajuste)
+- **Grandes decisões — grill** → `patterns/grill.md` + skill `decision-grill` (pedido ou pós-architectural)
 - **Resilience, observability, evaluation** → `production/`
 - **Code examples** → `references/code-examples.md`
 
