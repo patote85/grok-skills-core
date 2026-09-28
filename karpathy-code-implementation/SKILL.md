@@ -11,6 +11,8 @@ description: Enforce Karpathy-derived discipline for writing and editing code. P
 
 Produce code that a senior engineer would respect without rewriting.
 
+Standing (this project): do not spend tokens or new infra on a toaster job. Every change must stay agent-friendly as models move — smallest SoT (feature-map, test, CI gate), no slop README, no “review approved” theater. Architecture owns the pattern; this skill owns the diff and the proof.
+
 ## Core Principles (condensed)
 
 - **Read Before You Write** — Read the real files, patterns, imports and tests before changing anything. Code written on a Grok Bot cloud computer is a draft until it is read in the real repo.
